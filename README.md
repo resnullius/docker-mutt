@@ -2,11 +2,15 @@
 
 ## WHAT IS THIS?
 
-Docker image based on Debian Unstable with `mutt-patched`.
+Docker image based on `resnullius/alpine:edge` with `mutt` and `msmtp`.
+
+Extras: `vim`, `git`, `linx`, `bash` and `gnupg` (**yes**, 2.1.x branch).
 
 ## HOW TO RUN IT?
 
     docker run --rm -ti \
+      -v /etc/localtime:/etc/localtime \
+      -v ~/.gnupg:/home/user/gnupg \
       -v $PWD/configs:/Configs \
       -v $PWD/secrets:/Secrets \
       -v $PWD/Mail:/Mail \
